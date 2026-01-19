@@ -72,6 +72,43 @@ namespace SsiApi.Data
                 entity.HasOne(e => e.Usuario).WithMany().HasForeignKey(e => e.ChapaSolicitante);
                 entity.HasOne(e => e.Servico).WithMany().HasForeignKey(e => e.ServicoId);
             });
+            modelBuilder.Entity<Historico>(entity =>
+            {
+                entity.ToTable("historico");
+                entity.HasKey(e => e.HistoricoId);
+                entity.Property(e => e.HistoricoId).HasColumnName("historico_id");
+                entity.Property(e => e.DataAtualizacao).HasColumnName("data_atualizacao");
+                entity.Property(e => e.DescricaoAtualizacao).HasColumnName("descricao_atualizacao");
+                entity.Property(e => e.SsiId).HasColumnName("ssi_id");
+                entity.Property(e => e.UsuarioId).HasColumnName("usuario_chapa");
+
+                // 🔗 Relacionamentos
+                entity.HasOne(e => e.Ssi)
+                    .WithMany(s => s.Historicos)
+                    .HasForeignKey(e => e.SsiId);
+
+                entity.HasOne(e => e.Usuario)
+                    .WithMany(u => u.Historicos)
+                    .HasForeignKey(e => e.UsuarioId);
+            });
+            modelBuilder.Entity<Peca>(entity =>
+            {
+                entity.ToTable("peca");
+                entity.HasKey(e => e.PecaId);
+                entity.Property(e => e.PecaId).HasColumnName("peca_id");
+                entity.Property(e => e.DataPeca).HasColumnName("data_peca");
+                entity.Property(e => e.Descricao).HasColumnName("descricao");
+                entity.Property(e => e.Valor).HasColumnName("valor");
+                entity.Property(e => e.SsiId).HasColumnName("ssi_id");
+                entity.Property(e => e.UsuarioId).HasColumnName("fk_usuario_chapa");
+                entity.HasOne(e => e.Ssi)
+       .WithMany(s => s.Pecas)
+       .HasForeignKey(e => e.SsiId);
+
+                entity.HasOne(e => e.Usuario)
+                    .WithMany(u => u.Pecas)
+                    .HasForeignKey(e => e.UsuarioId);
+            });
         }
 
     }

@@ -16,4 +16,6 @@ public class Ssi
     public Servico Servico { get; set; }
 
     public int Andamento { get; set; }
+    public ICollection<Historico> Historicos { get; set; }
+        public ICollection<Peca> Pecas { get; set; }
 }

@@ -9,5 +9,7 @@
         public string TipoUsuario { get; set; }
         public char Mostrar { get; set; }
         public string AreaTecnico { get; set; }
+        public ICollection<Historico> Historicos { get; set; }
+        public ICollection<Peca> Pecas { get; set; }
     }
 }
