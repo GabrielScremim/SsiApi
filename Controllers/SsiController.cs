@@ -22,8 +22,8 @@ namespace SsiApi.Controllers
         public async Task<IActionResult> GetAll()
         {
             var ssis = await _context.Ssis
+                .Include(s => s.Usuario)
                 .Include(s => s.Servico)
-                .Include(s => s.ChapaSolicitante)
                 .ToListAsync();
 
             return Ok(ssis);
@@ -34,8 +34,8 @@ namespace SsiApi.Controllers
         public async Task<IActionResult> GetById(int id)
         {
             var ssi = await _context.Ssis
+                .Include(s => s.Usuario)
                 .Include(s => s.Servico)
-                .Include(s => s.ChapaSolicitante)
                 .FirstOrDefaultAsync(s => s.SsiId == id);
 
             if (ssi == null)
@@ -48,19 +48,21 @@ namespace SsiApi.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(CreateSsiDto dto)
         {
+            //valida usuário
             var usuario = await _context.Usuarios.FindAsync(dto.ChapaSolicitante);
             if (usuario == null)
                 return BadRequest("Usuário não encontrado");
 
+            // valida serviço
             var servico = await _context.Servicos.FindAsync(dto.ServicoId);
             if (servico == null)
                 return BadRequest("Serviço não encontrado");
 
             var ssi = new Ssi
             {
-                ChapaSolicitante = dto.ChapaSolicitante,
+                ChapaSolicitante = usuario.Chapa,
                 NomeSolicitante = usuario.Nome,
-                ServicoId = dto.ServicoId,
+                ServicoId = servico.ServicoId,
                 DataRegistro = DateTime.Now,
                 Andamento = 0
             };

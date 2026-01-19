@@ -1,4 +1,4 @@
-﻿namespace SsiApi.DTOs
+namespace SsiApi.DTOs
 {
     public class CreateSsiDto
     {
