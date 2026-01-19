@@ -1,0 +1,6 @@
+@SsiApi_HostAddress = http://localhost:5023
+
+GET {{SsiApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

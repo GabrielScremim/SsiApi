@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36811.4 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SsiApi", "SsiApi.csproj", "{B56CA5A9-D481-AE43-9FA3-1E159DB4E23D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B56CA5A9-D481-AE43-9FA3-1E159DB4E23D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B56CA5A9-D481-AE43-9FA3-1E159DB4E23D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B56CA5A9-D481-AE43-9FA3-1E159DB4E23D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B56CA5A9-D481-AE43-9FA3-1E159DB4E23D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DC800D27-B187-4CD5-8694-50FEA8A27563}
+	EndGlobalSection
+EndGlobal
