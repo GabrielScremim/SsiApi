@@ -12,6 +12,9 @@ namespace SsiApi.Data
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Servico> Servicos { get; set; }
         public DbSet<Ssi> Ssis { get; set; }
+        public DbSet<Peca> Pecas { get; set; }
+        public DbSet<Historico> Historicos { get; set; }
+        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Usuario>(entity =>

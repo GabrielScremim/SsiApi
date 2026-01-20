@@ -17,5 +17,5 @@ public class Ssi
 
     public int Andamento { get; set; }
     public ICollection<Historico> Historicos { get; set; }
-        public ICollection<Peca> Pecas { get; set; }
+    public ICollection<Peca> Pecas { get; set; }
 }
